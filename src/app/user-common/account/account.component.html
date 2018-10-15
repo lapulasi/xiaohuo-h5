@@ -1,0 +1,35 @@
+<div class="my-money">
+  <div class="total-money">
+    <span>我的火币</span>
+    <span>587</span>
+  </div>
+  <div class="list-title"><span>货币明细</span></div>
+  <ul *ngFor="let log of accountLogs">
+    <li>
+      <span class="income-type">{{log.desc}}</span>
+      <span class="time">{{log.time | date:"yyyy-MM-dd HH:mm:ss"}}</span>
+    </li>
+    <li class="red">{{formatAmount(log.amount)}}</li>
+  </ul>
+  <!-- <ul>
+    <li>
+      <span class="income-type">转发收益</span>
+      <span class="time">2018-07-21 15:39:42</span>
+    </li>
+    <li class="red">+50</li>
+  </ul>
+  <ul>
+    <li>
+      <span class="income-type">发布任务</span>
+      <span class="time">2018-07-21 15:39:42</span>
+    </li>
+    <li>-100</li>
+  </ul>
+  <ul>
+    <li>
+      <span class="income-type">充值</span>
+      <span class="time">2018-07-21 15:39:42</span>
+    </li>
+    <li class="red">+5000</li>
+  </ul> -->
+</div>

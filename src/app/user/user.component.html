@@ -1,0 +1,47 @@
+<div class="user-center">
+  <ul class="user-info">
+    <li><img src="{{userInfo?.headImg}}" alt=""></li>
+    <li class="account">
+      <span class="name">{{userInfo?.nickName}}</span>
+      <span class="phone">189-8876-4312</span>
+    </li>
+    <li class="right-tip"></li>
+  </ul>
+  <app-article-stat></app-article-stat>
+
+  <ul class="user-center-entrance">
+    <li>
+      <span class="icon yqm"></span>
+      <span class="name">我的邀请码</span>
+      <span>98829747</span>
+    </li>
+    <li [routerLink]="['/common/invite']">
+      <span class="icon wdhy"></span>
+      <span class="name">我的会员</span>
+      <span class="tip"></span>
+    </li>
+  </ul>
+
+  <ul class="user-center-entrance">
+    <li [routerLink]="['/common/account']">
+      <span class="icon gbjl"></span>
+      <span class="name">购币记录</span>
+      <span class="tip"></span>
+    </li>
+  </ul>
+
+  <ul class="user-center-entrance">
+    <li [routerLink]="['/common/service']">
+      <span class="icon kfwx"></span>
+      <span class="name">客服微信</span>
+      <span class="tip"></span>
+    </li>
+    <li [routerLink]="['/common/about']">
+      <span class="icon gywm"></span>
+      <span class="name">关于我们</span>
+      <span class="tip"></span>
+    </li>
+  </ul>
+
+  <!--<div class="button">退出登录</div>-->
+</div>

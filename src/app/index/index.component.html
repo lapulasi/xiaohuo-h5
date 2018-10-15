@@ -1,0 +1,60 @@
+<div class="index">
+  <div class="search">
+    <input type="text" placeholder="搜索" (focus)="isSearch=true" (blur)="isSearch=false">
+    <span class="icon" [ngClass]="{'hide': isSearch}"></span>
+  </div>
+  <div class="poster swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="assets/images/poster.png" alt="">
+      </div>
+      <div class="swiper-slide">
+        <img src="assets/images/poster.png" alt="">
+      </div>
+      <div class="swiper-slide">
+        <img src="assets/images/poster.png" alt="">
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+  <div class="handle-totals">
+    <ul class="line-icon">
+      <li class="one"></li>
+      <li class="two"></li>
+      <li class="three"></li>
+    </ul>
+    <ul class="count">
+      <li>
+        <span>浏览：</span><span>1172</span>
+      </li>
+      <li>
+        <span>发布：</span><span>68</span>
+      </li>
+      <li>
+        <span>分享：</span><span>572</span>
+      </li>
+    </ul>
+  </div>
+  <div class="enter swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" *ngFor="let item of typeList" style="width: 21%">
+        <img src="assets/images/home_btn_{{item.value}}@2x.png" alt="">
+        <span>{{item.name}}</span>
+      </div>
+    </div>
+  </div>
+  <ul class="msg-tip">
+    <li class="icon"></li>
+    <li class="time">[小时前]</li>
+    <li class="content">Marten发布了一条招聘消息</li>
+  </ul>
+  <div class="article-list-nav">
+    <ul>
+      <li *ngFor="let item of tab.list" (click)="tab.current = item;listArticle()"
+          [ngClass]="{'current': item.value == tab.current.value}">
+        <span>{{item.name}}</span><span></span>
+      </li>
+    </ul>
+  </div>
+  <app-article-list [articleList]="articleList" [type]="'index'"></app-article-list>
+</div>

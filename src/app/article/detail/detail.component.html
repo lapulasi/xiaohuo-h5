@@ -1,0 +1,21 @@
+<div class="task-detail">
+  <p class="title">{{article?.article?.title}}</p>
+  <ul class="author">
+    <li><img src="{{article?.authorHeadImg}}" alt=""></li>
+    <li>
+      <span>{{article?.authorName}}</span>
+      <span>{{article?.article?.time | date: 'MM-dd H:mm'}}</span>
+    </li>
+  </ul>
+  <div class="content">{{article?.article?.content}}</div>
+
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" *ngFor="let item of article?.article?.images">
+        <img src="{{item}}" alt="">
+      </div>
+
+    </div>
+  </div>
+
+</div>

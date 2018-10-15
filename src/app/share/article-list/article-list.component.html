@@ -1,0 +1,35 @@
+<div class="article-list">
+  <div class="article-panel" *ngFor="let item of articleList" (click)="gotoDetail(item.article.articleId)">
+    <div class="article">
+      <img src="{{item.article.images === null? 'assets/images/111.png': item.article.images[0]}}" alt="">
+      <div class="article-info">
+        <p class="article-title">{{item.article.title}}</p>
+        <ul>
+          <li>
+            <span>转发</span><span>{{item.shareNum}}</span>
+          </li>
+          <li class="line"></li>
+          <li>
+            <span>点击</span><span>{{item.viewNum}}</span>
+          </li>
+          <li *ngIf="type === 'index'">
+            <span>剩余火币</span><span>{{item.article.balance}}</span>
+          </li>
+          <li *ngIf="type === 'share'">
+            <span>转发详情</span><span class="right-tip"></span>
+          </li>
+          <li *ngIf="type === 'view'">
+            <span>点击详情</span><span class="right-tip"></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="release-info">
+      <div class="lable blue">{{getArticleTypeDes(item.article.type)}}</div>
+      <div class="time">
+        <span>发布时间：</span>
+        <span>{{item.article.time | date: 'yyyy-MM-dd H:mm'}}</span>
+      </div>
+    </div>
+  </div>
+</div>

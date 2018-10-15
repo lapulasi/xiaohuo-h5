@@ -1,0 +1,30 @@
+<div class="publish-task">
+  <p class="title">任务类型</p>
+  <ul class="task-type">
+    <li *ngFor="let item of type.list;" (click)="type.current = item.value" [ngClass]="{'current': item.value === type.current}">{{item.name}}</li>
+  </ul>
+  <p class="title">投放预算</p>
+  <ul class="budget">
+    <li class="less" (click)="article.budget > 1000 ? article.budget = article.budget - unit : ''"><span class="minus-icon"></span></li>
+    <li><input type="text" [(ngModel)]="article.budget" placeholder="1000币起投"></li>
+    <li class="add" (click)="article.budget = article.budget + unit"><span class="plus-icon"></span></li>
+    <li class="overage">余额：1500</li>
+  </ul>
+  <textarea placeholder="请输入标题，20-40个字..." class="article-title" [(ngModel)]="article.title">{{article.title}}</textarea>
+  <div class="input-item empty" contenteditable="true" data-placeholder="内容描述，最多不超过1500个字..."
+       [textContent]="article.content" (input)="article.content=$event.target.textContent">{{article.content}}</div>
+
+  <ul class="images">
+    <li *ngFor="let item of article.imgs">
+      <img src="{{item.url}}{{item.imageName}}" alt="">
+      <span class="delete" (click)="deleteFile(item.imageName)"></span>
+    </li>
+    <li class="add-img-button">
+      <img src="../assets/images/icon_posting_addimages@2x.png" alt="">
+      <form enctype="multipart/form-data" method="post">
+      <input #fileInput id="images" type="file" accept="image/*"  capture="camera" (change)="uploadFile()" multiple>
+      </form>
+    </li>
+  </ul>
+</div>
+<div class="big-button publish-task-btn" (click)="createTask()">发布</div>

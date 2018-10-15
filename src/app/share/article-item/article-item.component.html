@@ -1,0 +1,27 @@
+<div class="article-panel">
+  <div class="article">
+    <img src="{{article?.article?.images === null? 'assets/images/111.png': article?.article?.images[0]}}" alt="">
+    <div class="article-info">
+      <p class="article-title">{{article?.article?.title}}</p>
+      <ul>
+        <li>
+          <span>转发</span><span>{{article?.shareNum}}</span>
+        </li>
+        <li class="line"></li>
+        <li>
+          <span>点击</span><span>{{article?.viewNum}}</span>
+        </li>
+        <li>
+          <span>剩余火币</span><span>{{article?.article?.balance}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="release-info">
+    <div class="lable blue">{{getArticleTypeDes(article?.article?.type)}}</div>
+    <div class="time">
+      <span>发布时间：</span>
+      <span>{{article?.article?.time | date: 'yyyy-MM-dd H:mm'}}</span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="click-detail">
+
+  <app-article-item [articleId]="articleId"></app-article-item>
+
+  <ul class="publisher">
+    <li><img src="{{shareUserInfo?.user?.headImg}}" alt=""></li>
+    <li class="publisher-info">
+      <span>{{shareUserInfo?.user?.nickName}}</span>
+      <ul>
+        <li>点击量：{{shareUserInfo?.viewNum}}</li>
+        <li class="line"></li>
+        <li>收益：0</li>
+      </ul>
+    </li>
+    <li class="forward-time">
+      <span>转发时间</span>
+      <span>{{shareUserInfo?.time | date: 'MM-dd HH:mm'}}</span>
+    </li>
+  </ul>
+  <div class="list-title"><span>点击详情</span></div>
+  <div class="click-list">
+    <ul class="click-panel" *ngFor="let item of viewList$ | async">
+      <li>
+        <span>{{item.viewWxUid}}</span>
+        <span>{{item.address}}</span>
+      </li>
+      <li>
+        <span>{{item.time | date: 'yy-MM-dd HH:mm'}}</span>
+        <span>IP地址 {{item.ip}}</span>
+      </li>
+    </ul>
+  </div>
+</div>

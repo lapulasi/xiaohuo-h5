@@ -1,0 +1,1185 @@
+@charset "utf-8";
+$base-font-size: 50px !default; //变量的值可以根据自己需求定义
+@function pxTorem($px) { //$px为需要转换的字号
+  @return $px / $base-font-size * 1rem;
+}
+
+$font_size12: 12px;
+$font_size13: 13px;
+$font_size14: 14px;
+$font_size15: 15px;
+$font_size16: 16px;
+$font_size18: 18px;
+$font_size20: 20px;
+$font_size24: 24px;
+
+$fff: #fff;
+$gray3: #222;
+$gray6: #666;
+$gray9: #999;
+$borderColor: #F4F4F4;
+$red: #FE5838;
+$blue: #3189EF;
+$green: #65D5AC;
+$a: #AAA;
+
+$max-width: 94.6%;
+$side-width: 2.7%;
+
+@mixin backgroundImg($url) {
+  background: url($url);
+  background-position: center;
+  background-size: cover;
+}
+
+@mixin border {
+  border: 1px solid $borderColor;
+}
+
+@mixin borderDir($dir, $color: $borderColor) {
+  border-#{$dir}: 1px solid $color;
+}
+
+@mixin divBlock($height) {
+  width: $max-width;
+  padding: 0 $side-width;
+  @if($height==100%){
+    height: $height;
+  }@else {
+    height: pxTorem($height);
+  }
+  background: $fff;
+}
+
+@mixin font($size, $height) {
+  font-size: pxTorem($size);
+  line-height: pxTorem($height);
+}
+
+.index {
+  padding-bottom: pxTorem(49px);
+  .search {
+    width: 100%;
+    height: pxTorem(54px);
+    background-color: $red;
+    position: relative;
+    input {
+      position: absolute;
+      width: $max-width;
+      margin: 10px $side-width;
+      height: pxTorem(34px);
+      background: $fff;
+      color: $gray6;
+      border-radius: 2px;
+      font-size: pxTorem($font_size14);
+      line-height: pxTorem(34px);
+      text-align: center;
+    }
+    .icon {
+      position: absolute;
+      width: pxTorem(12px);
+      height: pxTorem(12px);
+      left: 42.5%;
+      top: pxTorem(21px);
+      @include backgroundImg("../images/search.png");
+    }
+  }
+  .poster {
+    width: 100%;
+    height: pxTorem(175px);
+    overflow: hidden;
+    img{
+      width: 100%;
+      height: 100%;
+    }
+    .swiper-pagination-bullets{
+      bottom: 0;
+    }
+    .swiper-pagination-bullet{
+      background: #fff;
+    }
+    .swiper-pagination-bullet-active{
+      background: $blue;
+    }
+  }
+
+  .handle-totals {
+    width: $max-width;
+    padding: 0 $side-width;
+    height: pxTorem(40px);
+    @include borderDir(bottom);
+    overflow: hidden;
+    background: $fff;
+    ul.line-icon{
+      width: pxTorem(16px);
+      height: pxTorem(12px);
+      margin-top: pxTorem(14px);
+      float: left;
+      filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+      -moz-transform: rotate(180deg);
+      -o-transform: rotate(180deg);
+      -webkit-transform: rotate(180deg);
+      transform: rotate(180deg);
+      li{
+        width: 2px;
+        height: 100%;
+        background: $red;
+        float: right;
+        margin-left: 3px;
+        &:last-child{
+          margin-right: 0;
+        }
+        &.one {
+          animation: yuying1 0.6s infinite 0.1s;
+          -webkit-animation: yuying1 0.6s infinite 0.1s;
+        }
+
+        &.two {
+          animation: yuying1 0.6s infinite 0.3s;
+          -webkit-animation: yuying1 0.6s infinite 0.3s;
+        }
+
+        &.three {
+          animation: yuying1 0.6s infinite 0.5s;
+          -webkit-animation: yuying1 0.6s infinite 0.5s;
+        }
+      }
+    }
+    ul.count {
+      float: right;
+      overflow: hidden;
+      li {
+        float: left;
+        margin-right: pxTorem(10px);
+        &:last-child {
+          margin-right: 0;
+        }
+        span {
+          float: left;
+          font-size: pxTorem(12px);
+          color: $gray6;
+          line-height: pxTorem(40px);
+        }
+      }
+    }
+  }
+
+  @keyframes yuying1 {
+    0% {
+      height: 20%;
+    }
+    20% {
+      height: 70%;
+    }
+    50% {
+      height: 100%;
+    }
+    80% {
+      height: 70%;
+    }
+    100% {
+      height: 20%;
+    }
+  }
+  .enter {
+    padding: 0 $side-width;
+    height: pxTorem(117px);
+    overflow: hidden;
+    background: $fff;
+    div.swiper-slide {
+      img {
+        width: pxTorem(55px);
+        height: pxTorem(55px);
+        margin-top: pxTorem(20px);
+      }
+      span {
+        display: block;
+        width: pxTorem(55px);
+        text-align: center;
+        font-size: pxTorem($font_size12);
+        line-height: 1;
+        margin-top: pxTorem(10px);
+        color: $gray6;
+      }
+    }
+    .slick-slide {
+      margin-right: pxTorem(26px);
+    }
+  }
+  ul.msg-tip {
+    width: $max-width;
+    padding: 0 $side-width;
+    height: pxTorem(44px);
+    background: $fff;
+    overflow: hidden;
+    margin: pxTorem(10px) 0;
+    li {
+      float: left;
+      font-size: pxTorem($font_size14);
+      line-height: pxTorem(44px);
+      color: $gray6;
+    }
+    .icon {
+      width: pxTorem(18px);
+      height: pxTorem(16px);
+      margin-top: pxTorem(14px);
+      @include backgroundImg("../images/home_icon_message@2x.png")
+    }
+    .time {
+      margin-left: pxTorem(13px);
+      margin-right: pxTorem(5px);
+      color: $gray9;
+    }
+  }
+  .article-list-nav {
+    @include divBlock(44px);
+    @include borderDir(bottom);
+    ul {
+      overflow: hidden;
+      li {
+        font-size: pxTorem($font_size16);
+        color: $gray6;
+        line-height: pxTorem(44px);
+        float: left;
+        margin-right: pxTorem(24px);
+
+        span {
+          font-size: inherit;
+          display: block;
+          &:last-child {
+            width: pxTorem(20px);
+            height: 0;
+            border-top: 2px solid $fff;
+            margin: -2px auto 0;
+          }
+        }
+
+        &.current {
+          color: $gray3;
+          span:last-child {
+            border-top: 2px solid $red;
+          }
+        }
+      }
+    }
+  }
+}
+
+.article-panel {
+  @include divBlock(152px);
+  margin-top: pxTorem(10px);
+  &:first-child {
+    margin-top: 0;
+  }
+  .article {
+    overflow: hidden;
+    img {
+      width: pxTorem(68px);
+      height: pxTorem(68px);
+      float: left;
+      margin-top: pxTorem(16px);
+    }
+    .article-info {
+      width: 77.2%;
+      float: right;
+      .article-title {
+        height: pxTorem(42px);
+        font-size: pxTorem($font_size16);
+        color: $gray3;
+        line-height: pxTorem(22px);
+        margin-top: pxTorem(16px);
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+      }
+      ul {
+        overflow: hidden;
+        margin-top: pxTorem(7px);
+        li {
+          float: left;
+          color: #AAAAAA;
+          span {
+            float: left;
+            font-size: pxTorem($font_size12);
+            line-height: pxTorem(17px);
+            &:last-child {
+              margin-left: pxTorem(6px);
+            }
+          }
+          &.line {
+            width: 0;
+            height: pxTorem(10px);
+            @include borderDir(right);
+            margin: 0 pxTorem(10px);
+          }
+          &:last-child {
+            float: right;
+            color: $gray3;
+          }
+          .right-tip {
+            float: right;
+            width: pxTorem(8px);
+            height: pxTorem(12px);
+            margin-top: pxTorem(3px);
+            @include backgroundImg("../images/ico_go@2x.png");
+          }
+        }
+      }
+    }
+  }
+  .release-info {
+    @include borderDir(top);
+    margin-top: pxTorem(20px);
+    padding-top: pxTorem(13px);
+    .lable {
+      float: left;
+      width: pxTorem(38px);
+      height: pxTorem(18px);
+      @include font(12px, 18px);
+      text-align: center;
+      &.blue {
+        border: 1px solid $blue;
+        color: $blue;
+      }
+      &.red {
+        border: 1px solid $red;
+        color: $red;
+      }
+      &.green {
+        border: 1px solid $green;
+        color: $green;
+      }
+    }
+    .time {
+      float: right;
+      span {
+        @include font(12px, 17px);
+        float: left;
+        color: #AAAAAA;
+        &:first-child {
+          margin-right: pxTorem(6px);
+        }
+      }
+    }
+  }
+
+}
+
+.footer {
+  display: -webkit-flex; /* Safari */
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: pxTorem(48px);
+  background: $fff;
+  @include borderDir(top);
+  li {
+    float: left;
+    width: 25%;
+    text-align: center;
+    span {
+      display: block;
+      margin: 0 auto;
+      &:last-child {
+        @include font(10px, 10px);
+        color: #dedede;
+        margin-top: pxTorem(4px);
+      }
+    }
+    .icon {
+      width: pxTorem(22px);
+      height: pxTorem(22px);
+      margin-top: pxTorem(8px);
+      &.sy {
+        @include backgroundImg("../images/tab_icon_home_nor@2x.png")
+      }
+      &.frw {
+        @include backgroundImg("../images/tab_icon_task_nor@2x.png")
+      }
+      &.zf {
+        @include backgroundImg("../images/tab_icon_forwarding_nor@2x.png")
+      }
+      &.wd {
+        @include backgroundImg("../images/tab_icon_me_nor@2x.png")
+      }
+    }
+    &.current {
+      span:last-child {
+        color: #fe5838;
+      }
+      .icon {
+        &.sy {
+          @include backgroundImg("../images/tab_icon_home_press@2x.png")
+        }
+        &.frw {
+          @include backgroundImg("../images/tab_icon_task_press@2x.png")
+        }
+        &.zf {
+          @include backgroundImg("../images/tab_icon_forwarding_press@2x.png")
+        }
+        &.wd {
+          @include backgroundImg("../images/tab_icon_me_press@2x.png")
+        }
+      }
+    }
+  }
+}
+
+
+  .big-button {
+    width: 94.6%;
+    height: pxTorem(44px);
+    @include font(18px, 44px);
+    text-align: center;
+    color: $fff;
+    background: $red;
+    margin: pxTorem(10px) auto;
+  }
+
+
+ul.statistics {
+  width: 100%;
+  height: pxTorem(79px);
+  background: $fff;
+  @include borderDir(top);
+  overflow: hidden;
+  margin-bottom: pxTorem(10px);
+  li {
+    width: 33.33%;
+    float: left;
+    text-align: center;
+    @include font(14px, 14px);
+    color: $a;
+    span {
+      display: block;
+      &:first-child {
+        @include font(16px, 16px);
+        color: $gray3;
+        margin-top: pxTorem(21px);
+      }
+      &:last-child {
+        margin-top: pxTorem(10px);
+      }
+    }
+  }
+}
+
+.forward {
+  padding-bottom: pxTorem(49px);
+}
+
+.list-title {
+  @include divBlock(40px);
+  @include borderDir(bottom);
+  margin-top: pxTorem(10px);
+  span {
+    float: left;
+    margin-top: pxTorem(12px);
+    border-left: 4px solid $red;
+    padding-left: pxTorem(8px);
+    @include font(16px, 16px);
+    color: $gray3;
+  }
+}
+
+.forward-list-panel {
+  overflow: hidden;
+  width: 100%;
+  height: pxTorem(81px);
+  background: $fff;
+  img {
+    width: pxTorem(50px);
+    height: pxTorem(50px);
+    float: left;
+    border-radius: 50%;
+    margin: pxTorem(16px) 0 0 2.7%;
+  }
+  ul {
+    float: right;
+    width: 80.5%;
+    @include borderDir(bottom);
+    padding-top: pxTorem(18px);
+    height: pxTorem(62px);
+    li {
+      float: left;
+      &:first-child {
+        span {
+          display: block;
+          @include font(16px, 22px);
+          color: $gray3;
+          &:last-child {
+            @include font(12px, 16px);
+            color: $a;
+            margin-top: pxTorem(6px);
+          }
+        }
+      }
+      &:last-child {
+        @include font(12px, 16px);
+        color: $gray6;
+        float: right;
+        margin-top: pxTorem(14px);
+      }
+      &.right-tip {
+        float: right;
+        width: pxTorem(8px);
+        height: pxTorem(12px);
+        margin: pxTorem(16px) 2.7% 0 pxTorem(6px);
+        @include backgroundImg("../images/ico_go@2x.png");
+      }
+    }
+  }
+}
+
+.publisher {
+  @include divBlock(82px);
+  margin: pxTorem(10px) 0;
+  li {
+    float: left;
+  }
+  img {
+    width: pxTorem(50px);
+    height: pxTorem(50px);
+    border-radius: 50%;
+    margin-top: pxTorem(16px);
+  }
+  .publisher-info {
+    margin-left: pxTorem(10px);
+    span {
+      display: block;
+      @include font(16px, 22px);
+      color: $gray3;
+      margin-top: pxTorem(18px);
+    }
+    ul {
+      @include font(12px, 16px);
+      color: $gray6;
+      margin-top: pxTorem(6px);
+      .line {
+        width: 0;
+        height: pxTorem(10px);
+        margin: 0 pxTorem(5px);
+        @include borderDir(left);
+      }
+    }
+  }
+  .forward-time {
+    float: right;
+    margin-top: pxTorem(25px);
+    span {
+      display: block;
+      text-align: right;
+      @include font(12px, 16px);
+      color: $a;
+    }
+  }
+}
+
+.click-list {
+  background: $fff;
+}
+
+.click-panel {
+  height: pxTorem(74px);
+  background: $fff;
+  @include borderDir(bottom);
+  margin-left: 2.7%;
+  li {
+    float: left;
+    span {
+      display: block;
+    }
+    &:first-child {
+      width: 60.2%;
+      span {
+        @include font(16px, 22px);
+        &:first-child {
+          margin-top: pxTorem(14px);
+          overflow: hidden;
+          text-overflow:ellipsis;
+          white-space: nowrap;
+        }
+        &:last-child {
+          @include font(14px, 20px);
+          margin-top: pxTorem(5px);
+        }
+      }
+    }
+    &:last-child {
+      margin-right: 2.7%;
+      float: right;
+      text-align: right;
+      @include font(12px, 17px);
+      color: #8E949B;
+      span:first-child {
+        margin-top: pxTorem(20px);
+      }
+    }
+  }
+}
+.task{
+  margin-bottom: pxTorem(48px);
+}
+.task-detail {
+  width: 94.6%;
+  padding: 0 2.7% pxTorem(50px);
+  height: 100%;
+  background: $fff;
+  overflow: hidden;
+  .title {
+    @include font(20px, 30px);
+    color: $gray3;
+    margin-top: pxTorem(20px);
+  }
+  .author {
+    overflow: hidden;
+    margin-top: pxTorem(14px);
+    li {
+      float: left;
+      &:last-child {
+        margin-left: pxTorem(6px);
+        span {
+          display: block;
+          @include font(10px, 10px);
+          color: $a;
+          &:first-child {
+            @include font(14px, 14px);
+            color: $gray3;
+            margin-bottom: pxTorem(6px);
+          }
+        }
+      }
+    }
+    img {
+      width: pxTorem(30px);
+      height: pxTorem(30px);
+      border-radius: 50%;
+      float: left;
+    }
+  }
+  .content {
+    @include font(16px, 26px);
+    color: $gray3;
+    margin-top: pxTorem(16px);
+  }
+  .swiper-slide{
+    img{
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.user-center {
+  .statistics {
+    border: none;
+  }
+  .button {
+    width: 94.6%;
+    height: pxTorem(44px);
+    text-align: center;
+    @include font(18px, 44px);
+    color: $fff;
+    background: $red;
+    float: left;
+    margin: pxTorem(10px) 2.7%;
+  }
+}
+
+.user-info {
+  @include divBlock(104px);
+  li {
+    float: left;
+  }
+  img {
+    width: pxTorem(64px);
+    height: pxTorem(64px);
+    border-radius: 50%;
+    float: left;
+    margin-top: pxTorem(20px);
+  }
+  .account {
+    margin-left: pxTorem(16px);
+    margin-top: pxTorem(24px);
+    span {
+      display: block;
+      @include font(20px, 28px);
+      color: $gray3;
+      &:last-child {
+        @include font(16px, 22px);
+        color: $a;
+        margin-top: pxTorem(6px);
+      }
+    }
+  }
+  .right-tip {
+    float: right;
+    width: pxTorem(8px);
+    height: pxTorem(12px);
+    margin-top: pxTorem(50px);
+    @include backgroundImg("../images/ico_go@2x.png");
+  }
+}
+
+.user-center-entrance {
+  background: $fff;
+  margin-top: pxTorem(10px);
+  li {
+    margin-left: 2.7%;
+    @include borderDir(bottom);
+    height: pxTorem(54px);
+    @include font(16px, 54px);
+    color: $a;
+    span {
+      float: left;
+      &:last-child {
+        float: right;
+        margin-right: 2.7%;
+      }
+    }
+    .icon {
+      width: pxTorem(18px);
+      height: pxTorem(18px);
+      margin-top: pxTorem(18px);
+    }
+    .yqm {
+      @include backgroundImg("../images/me_ico_Invitecode@2x.png")
+    }
+    .wdhy {
+      @include backgroundImg("../images/me_icon_members@2x.png")
+    }
+    .gbjl {
+      @include backgroundImg("../images/me_ico_record@2x.png")
+    }
+    .kfwx {
+      @include backgroundImg("../images/me_icon_weixin@2x.png")
+    }
+    .gywm {
+      @include backgroundImg("../images/me_ico_aboutus@2x.png")
+    }
+
+    .name {
+      color: $gray3;
+      margin-left: pxTorem(10px);
+    }
+    .tip {
+      width: pxTorem(8px);
+      height: pxTorem(12px);
+      margin-top: pxTorem(21px);
+      @include backgroundImg("../images/ico_go@2x.png");
+      &.fr{
+        float: right;
+        margin-right: 2.7%;
+      }
+    }
+  }
+}
+
+.publish-task {
+  width: 94.6%;
+  padding: 0 2.7%;
+  background: $fff;
+  overflow: hidden;
+  .title {
+    @include font(14px, 14px);
+    color: $gray3;
+    margin-top: pxTorem(20px);
+  }
+  .task-type {
+    margin-top: pxTorem(16px);
+    padding-bottom: pxTorem(20px);
+    @include borderDir(bottom);
+    overflow: hidden;
+    li {
+      float: left;
+      width: 23%;
+      margin-right: 1.92%;
+      border: 1px solid $borderColor;
+      @include font(14px, 34px);
+      text-align: center;
+      color: $gray6;
+      &:nth-child(n+5) {
+        margin-top: pxTorem(10px);
+      }
+      &:nth-child(4n) {
+        margin-right: 0;
+      }
+      &.current {
+        background: $red;
+        border-color: $red;
+        color: $fff;
+      }
+    }
+  }
+  .budget{
+    overflow: hidden;
+    margin-top: pxTorem(16px);
+    padding-bottom: pxTorem(20px);
+    @include borderDir(bottom);
+    li{
+      float: left;
+      @include font(14px, 32px);
+      color: $a;
+    }
+    .less,.add{
+      width: pxTorem(32px);
+      height: pxTorem(32px);
+      line-height: pxTorem(32px);
+      text-align: center;
+      border: 1px solid $borderColor;
+    }
+    /*加号*/
+    .plus-icon {
+      display: block;
+      background: #676767;
+      height: pxTorem(10px);
+      width: pxTorem(2px);
+      position: relative;
+      margin: pxTorem(11px) pxTorem(15px);
+    }
+    .plus-icon:after {
+      background: #676767;
+      content: "";
+      height: pxTorem(10px);
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: pxTorem(2px);
+      transform: rotateZ(90deg)
+    }
+    /*减号*/
+    .minus-icon {
+      display: block;
+      background: #676767;
+      width: pxTorem(10px);
+      height: pxTorem(2px);
+      margin: pxTorem(15px) pxTorem(11px);
+    }
+    input{
+      width: pxTorem(118px);
+      height: pxTorem(32px);
+      text-align: center;
+      border: 1px solid $borderColor;
+      margin: 0 pxTorem(10px);
+    }
+    .overage{
+      float: right;
+      color: $red;
+    }
+  }
+  textarea{
+    width: 100%;
+    border: none;
+    padding-top: pxTorem(16px);
+    @include font(16px, 22px);
+    resize: none;
+    color: $gray3;
+    &.article-title{
+      @include borderDir(bottom);
+      height: pxTorem(62px);
+    }
+  }
+  .input-item{
+    user-select:text;
+    -webkit-user-select:text;
+    @include font(16px, 24px);
+    color: $gray3;
+    outline: none;
+    &.empty:before{
+      content: attr(data-placeholder);
+      color:#aaa;
+      position: absolute;
+    }
+
+  }
+
+  ul.images{
+    overflow: hidden;
+    height: auto;
+    li{
+      float: left;
+      position: relative;
+      margin: pxTorem(10px) pxTorem(9.2px) 0 0;
+      &:last-child{
+        margin-right: 0;
+      }
+      img{
+        width: pxTorem(109px);
+        height: pxTorem(109px);
+      }
+      .delete{
+        width: pxTorem(24px);
+        height: pxTorem(24px);
+        position: absolute;
+        right: -5px;
+        top: -5px;
+        @include backgroundImg("../images/posting_icon_delete@2x.png")
+      }
+    }
+  }
+  .add-img-button{
+    width: pxTorem(109px);
+    height: pxTorem(109px);
+    margin-top: pxTorem(10px);
+    border: 1px solid $borderColor;
+    position: relative;
+    input{
+      position: absolute;
+      width: pxTorem(109px);
+      height: pxTorem(109px);
+      left: 0;
+      top: 0;
+      opacity: 0;
+    }
+  }
+  padding-bottom: pxTorem(40px);
+}
+.publish-task-btn{
+  margin: pxTorem(20px) auto pxTorem(30px);
+}
+.my-money{
+  .total-money{
+    @include divBlock(82px);
+    @include font(16px, 82px);
+    color: $gray3;
+    span:last-child{
+      float: right;
+      font-size: pxTorem(30px);
+    }
+  }
+  ul{
+    overflow: hidden;
+    background: $fff;
+    li{
+      padding: 0 2.7%;
+      width: 40%;
+      float: left;
+      height: pxTorem(63px);
+      overflow: hidden;
+      @include font(16px, 22px);
+      color: $gray3;
+      &:last-child{
+        float: right;
+        text-align: right;
+        line-height: pxTorem(63px);
+      }
+      span{
+        display: block;
+        &:first-child{
+          margin-top: pxTorem(12px);
+        }
+        &:last-child{
+          @include font(12px, 16px);
+          color: $a;
+
+        }
+      }
+      @include borderDir(bottom);
+    }
+
+  }
+}
+.red{
+  color: $red;
+}
+.handle-money{
+  overflow: hidden;
+  @include divBlock(100%);
+  color: $gray3;
+  p{
+    @include font(16px, 22px);
+    margin-top: pxTorem(40px);
+  }
+  input{
+    width: 99%;
+    height: pxTorem(42px);
+    border: 1px solid $borderColor;
+    text-indent: 2em;
+    margin-top: pxTorem(10px);
+  }
+  .big-button{
+    width: 100%;
+    margin-top: pxTorem(30px);
+  }
+  dl{
+    margin-top: pxTorem(60px);
+    @include font(16px, 26px);
+    color: $a;
+    dt{
+      @include font(16px, 22px);
+      margin-bottom: pxTorem(8px);
+      color: $gray3;
+    }
+  }
+}
+.withdraw{
+  .wdhb,.ktxhb{
+    @include font(16px, 22px);
+    color: $gray3;
+  }
+  .wdhb{
+    margin-top: pxTorem(30px);
+  }
+  .ktxhb{
+    margin-top: pxTorem(14px);
+  }
+  a{
+    float: left;
+    width: 100%;
+    @include font(16px, 22px);
+    margin-top: pxTorem(10px);
+    text-align: center;
+    color: $red;
+    text-decoration: underline;
+  }
+}
+.invitation-code{
+  .my-code{
+    height: pxTorem(101px);
+    background: $fff;
+    width: 100%;
+    overflow: hidden;
+    li{
+      margin-left: 2.7%;
+      @include borderDir(bottom);
+      @include font(16px,50px);
+      padding-right: 2.7%;
+      &:last-child{
+        border: none;
+      }
+    }
+    span:last-child{
+      float: right;
+      color: $gray6;
+    }
+  }
+  .member-list{
+    .member-panel{
+      overflow: hidden;
+      height: pxTorem(65px);
+      background: $fff;
+      div{
+        height: pxTorem(64px);
+        width: 83.93%;
+        @include borderDir(bottom);
+        float: left;
+        overflow: hidden;
+        margin-left: pxTorem(10px);
+      }
+    }
+    span{
+      float: left;
+      @include font(16px, 64px);
+      color: $gray3;
+    }
+    .time{
+      float: right;
+      color: $a;
+      margin-right: 2.7%;
+      font-size: $font_size12;
+    }
+    img{
+      width: pxTorem(40px);
+      height: pxTorem(40px);
+      margin-top: pxTorem(12px);
+      margin-left: 2.7%;
+      border-radius: 50%;
+      float: left;
+    }
+  }
+}
+.withdraw-code{
+  width: 100%;
+  height: 100%;
+  background: $fff;
+  ul{
+    height: pxTorem(62px);
+    @include font(16px, 62px);
+    color: $gray3;
+    overflow: hidden;
+    @include borderDir(bottom);
+    li{
+      width: 30.63%;
+      float: left;
+      &:first-child{
+        text-align: left;
+        padding-left: 2.7%;
+      }
+      &:nth-child(2){
+        width: 33.33%;
+        text-align: center;
+      }
+      &:last-child{
+        text-align: right;
+        padding-right: 2.7%;
+      }
+      &.end{
+        color: $a;
+      }
+    }
+    &.title{
+      height: pxTorem(44px);
+      @include font(14px, 44px);
+      color: $gray6;
+    }
+  }
+}
+.abort-us{
+  @include divBlock(100%);
+  overflow: hidden;
+  img{
+    display: block;
+    width: pxTorem(132px);
+    height: pxTorem(46px);
+    margin: pxTorem(60px) auto 0;
+  }
+  ul{
+    margin-top: pxTorem(40px);
+    li{
+      text-align: center;
+      @include font(16px, 26px);
+      color: $gray6;
+    }
+  }
+}
+.wechat{
+  width: 100%;
+  height: 100%;
+  background: $fff;
+  overflow: hidden;
+  @include borderDir(top);
+  @include font(14px,22px);
+  color: $gray3;
+  div.panel{
+    padding: 0 2.7%;
+    div.title{
+      @include font(16px, 22px);
+      margin-top: pxTorem(40px);
+      overflow: hidden;
+      span{
+        float: left;
+        &:last-child{
+          float: right;
+          width: pxTorem(12px);
+          height: pxTorem(8px);
+          margin-top: pxTorem(7px);
+          @include backgroundImg("../images/icon-down.png");
+        }
+        &.icon-up{
+          @include backgroundImg("../images/icon-up.png");
+        }
+      }
+    }
+    ul>li{
+      text-align: center;
+      img{
+        width: pxTorem(120px);
+        height: pxTorem(120px);
+        margin-top: pxTorem(14px);
+        margin-bottom: pxTorem(8px);
+      }
+    }
+  }
+}

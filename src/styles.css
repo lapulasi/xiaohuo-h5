@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+@import "/assets/css/common.css";
+@import "/assets/css/page.css";
+@import "/assets/css/swiper/swiper.css";
+
+.hide{
+  display: none;
+}
+.show{
+  display: block;
+}

@@ -1,0 +1,19 @@
+<div class="forward-detail">
+
+  <app-article-item [articleId]="articleId"></app-article-item>
+
+  <div class="list-title"><span>转发详情</span></div>
+  <div class="forward-list">
+    <div class="forward-list-panel" *ngFor="let item of shareList$ | async">
+      <img src="{{item.user.headImg}}" alt="">
+      <ul  [routerLink]="['/view/detail', articleId, item.user.userId]">
+        <li>
+          <span>{{item.user.nickName}}</span>
+          <span>转发时间：{{item.time | date: 'MM-dd HH:mm'}}</span>
+        </li>
+        <li class="right-tip"></li>
+        <li>点击量：{{item.viewNum}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
